@@ -73,4 +73,11 @@ public class FacultyController {
         facultyService.editFaculty(faculty.getId(), Faculty.from(facultyDto));
         return new ResponseEntity<>(FacultyDto.from(faculty), HttpStatus.OK);
     }
+
+    @PostMapping(value = "{facultyId}/institutes/{instituteId}/add")
+    public ResponseEntity<FacultyDto> addFaculty(@PathVariable final Integer facultyId,
+                                                 @PathVariable final Integer instituteId){
+        Faculty faculty = facultyService.addInstituteToFaculty(facultyId, instituteId);
+        return new ResponseEntity<>(FacultyDto.from(faculty), HttpStatus.OK);
+    }
 }

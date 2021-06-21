@@ -2,6 +2,7 @@ package com.watmap.server.controller;
 
 import com.watmap.server.entity.Institute;
 import com.watmap.server.entity.dto.InstituteDto;
+import com.watmap.server.service.FacultyService;
 import com.watmap.server.service.InstituteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,15 +16,19 @@ import java.util.stream.Collectors;
 @RequestMapping("/institutes")
 public class InstituteController {
     private final InstituteService instituteService;
+    private final FacultyService facultyService;
 
     @Autowired
-    public InstituteController(InstituteService instituteService) {
+    public InstituteController(InstituteService instituteService, FacultyService facultyService) {
         this.instituteService = instituteService;
+        this.facultyService = facultyService;
     }
 
     @PostMapping
     public ResponseEntity<InstituteDto> addItem(@RequestBody final InstituteDto instituteDto){
-        Institute institute = instituteService.addInstitute(Institute.from(instituteDto));
+        Institute institute = Institute.from(instituteDto);
+        institute.setFaculty(facultyService.getFaculty(instituteDto.getFacultyId()));
+        institute = instituteService.addInstitute(institute);
         return new ResponseEntity<>(InstituteDto.from(institute), HttpStatus.OK);
     }
 
@@ -49,7 +54,8 @@ public class InstituteController {
     @PutMapping(value = "{id}")
     public ResponseEntity<InstituteDto> editInstitute(@PathVariable final Integer id,
                                                       @RequestBody final InstituteDto instituteDto) {
-        Institute editedInstitute = instituteService.editInstitute(id, Institute.from(instituteDto));
+        Institute editedInstitute = Institute.from(instituteDto);
+        editedInstitute = instituteService.editInstitute(id, editedInstitute);
         return new ResponseEntity<>(InstituteDto.from(editedInstitute), HttpStatus.OK);
     }
 

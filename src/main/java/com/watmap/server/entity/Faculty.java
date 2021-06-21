@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 @Data
 @Entity
-@Table(name = "Faculty", uniqueConstraints=@UniqueConstraint(columnNames={"shortName"}))
+@Table(name = "Faculty")
 public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +23,9 @@ public class Faculty {
     private String description;
 
     @OneToMany(
-            mappedBy = "faculty",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+            cascade = CascadeType.ALL
     )
+    @JoinColumn(name = "faculty_id")
     private List<Institute> institutes = new ArrayList<>();
 
     public Faculty() {

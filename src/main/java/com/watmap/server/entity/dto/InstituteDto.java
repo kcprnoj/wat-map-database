@@ -11,6 +11,7 @@ public class InstituteDto {
     private int number;
     private double latitude;
     private double longitude;
+    private int facultyId;
 
     public static InstituteDto from(Institute institute){
         InstituteDto instituteDto = new InstituteDto();
@@ -20,6 +21,7 @@ public class InstituteDto {
         instituteDto.setNumber(institute.getNumber());
         instituteDto.setLatitude(institute.getLatitude());
         instituteDto.setLongitude(institute.getLongitude());
+        instituteDto.setFacultyId(institute.getFaculty().getId());
         return instituteDto;
     }
 }

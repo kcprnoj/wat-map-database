@@ -18,7 +18,6 @@ public class Institute {
     private double latitude;
     private double longitude;
     @ManyToOne
-    @JoinColumn(name = "faculty_id")
     private Faculty faculty;
 
     public Institute() {

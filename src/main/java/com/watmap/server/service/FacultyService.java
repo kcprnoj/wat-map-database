@@ -7,6 +7,7 @@ import com.watmap.server.repository.FacultyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -53,16 +54,17 @@ public class FacultyService {
         return faculty;
     }
 
+    @Transactional
     public Faculty editFaculty(Integer id, Faculty faculty) {
         Faculty facultyToEdit = getFaculty(id);
         facultyToEdit.setDescription(faculty.getDescription());
         facultyToEdit.setName(faculty.getName());
         facultyToEdit.setShortName(faculty.getShortName());
         facultyToEdit.setUrl(faculty.getUrl());
-        facultyRepository.save(facultyToEdit);
         return facultyToEdit;
     }
 
+    @Transactional
     public Faculty addInstituteToFaculty(Integer facultyId, Integer instituteId) {
         Faculty faculty = getFaculty(facultyId);
         Institute institute = instituteService.getInstitute(instituteId);
@@ -70,6 +72,7 @@ public class FacultyService {
         return faculty;
     }
 
+    @Transactional
     public Faculty removeInstituteFromFaculty(Integer facultyId, Integer instituteId) {
         Faculty faculty = getFaculty(facultyId);
         Institute institute = instituteService.getInstitute(instituteId);

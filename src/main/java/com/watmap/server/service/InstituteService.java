@@ -7,6 +7,7 @@ import com.watmap.server.repository.InstituteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -42,6 +43,7 @@ public class InstituteService {
         return institute;
     }
 
+    @Transactional
     public Institute editInstitute(Integer id, Institute institute) {
         Institute instituteToEdit = getInstitute(id);
         instituteToEdit.setDescription(institute.getDescription());
@@ -49,7 +51,6 @@ public class InstituteService {
         instituteToEdit.setLatitude(institute.getLatitude());
         instituteToEdit.setLongitude(institute.getLongitude());
         instituteToEdit.setNumber(institute.getNumber());
-        instituteRepository.save(instituteToEdit);
         return instituteToEdit;
     }
 }
