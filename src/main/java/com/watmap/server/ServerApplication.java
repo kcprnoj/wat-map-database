@@ -63,6 +63,18 @@ public class ServerApplication {
         facultyRepository.save(un);
         facultyRepository.save(pl);
         facultyRepository.save(as);
+
+        Faculty ent = new Faculty("Entrances", "entrances", "", "");
+        Institute instituteA = new Institute("Entrance A", "65", 65, 52.25317522096048, 20.899552702903748, ent);
+        Institute instituteB = new Institute("Entrance B", "100", 100, 52.2536251204248, 20.899547338485718, ent);
+        Institute instituteC = new Institute("Entrance C", "100", 100, 52.25369736662887, 20.900727510452267, ent);
+        Institute instituteE = new Institute("Entrance E", "100", 100, 52.252741736868266, 20.90075969696045, ent);
+        Institute instituteG = new Institute("Entrance G", "100", 100, 52.2526727730994, 20.89965999126434, ent);
+        Institute instituteRadiowa = new Institute("Entrance from Radiowa", "", 0, 52.25529988853865, 20.90469181537628, ent);
+        Institute instituteLazurowa = new Institute("Entrance from Lazurowa", "", 0, 52.25222943202509, 20.90051293373108, ent);
+        List<Institute> institutes = Arrays.asList(instituteA, instituteB, instituteC, instituteE, instituteG, instituteRadiowa, instituteLazurowa);
+        ent.setInstitutes(institutes);
+        facultyRepository.save(ent);
     }
 
 }
