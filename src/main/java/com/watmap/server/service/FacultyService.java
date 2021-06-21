@@ -59,6 +59,7 @@ public class FacultyService {
         facultyToEdit.setName(faculty.getName());
         facultyToEdit.setShortName(faculty.getShortName());
         facultyToEdit.setUrl(faculty.getUrl());
+        facultyRepository.save(facultyToEdit);
         return facultyToEdit;
     }
 

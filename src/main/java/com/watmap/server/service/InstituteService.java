@@ -49,6 +49,7 @@ public class InstituteService {
         instituteToEdit.setLatitude(institute.getLatitude());
         instituteToEdit.setLongitude(institute.getLongitude());
         instituteToEdit.setNumber(institute.getNumber());
+        instituteRepository.save(instituteToEdit);
         return instituteToEdit;
     }
 }
