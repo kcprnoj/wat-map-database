@@ -21,7 +21,7 @@ public class ServerApplication {
         createWatFaculties(facultyRepository);
     }
 
-    public static void createWatFaculties(FacultyRepository facultyRepository){
+    public static void createWatFaculties(FacultyRepository facultyRepository) {
         Faculty wcy = new Faculty("Faculty of Cybernetics", "WCY", "https://wcy.wat.edu.pl", "wat");
         Institute institute1 = new Institute("Instytut Inżynieri Systemów", "65", 65, 0.0, 0.0, wcy);
         Institute institute2 = new Institute("Instytut Inżynieri Systemów", "100", 100, 0.0, 0.0, wcy);
@@ -38,7 +38,10 @@ public class ServerApplication {
         Faculty swf = new Faculty("Study of physical education", "SWF", "https://www.wojsko-polskie.pl/wat/studium-wychowania-fizycznego/", "");
         Faculty other = new Faculty("Other", "other", "https://wat.edu.pl", "wat");
         Faculty akaWoj = new Faculty("Military dormitory", "aka_woj", "https://www.wojsko-polskie.pl/wat/domy-studenckie/", "wat");
-        Faculty akaCyw = new Faculty("Civil dormitory", "aka_cyw", "https://www.wojsko-polskie.pl/wat/domy-studenckie/", "wat");
+        Faculty akaCyw = new Faculty("Civil dormitory", "aka_cyw", "https://www.wojsko-polskie.pl/wat/domy-studenckie/", "");
+        Faculty sto = new Faculty("Military canteen", "sto", "https://www.wojsko-polskie.pl/wat/", "");
+        Faculty stj = new Faculty("Study of foreign languages", "klub", "https://sjo.wat.edu.pl/", "");
+
 
         facultyRepository.save(swf);
         facultyRepository.save(wcy);
@@ -53,6 +56,8 @@ public class ServerApplication {
         facultyRepository.save(other);
         facultyRepository.save(akaCyw);
         facultyRepository.save(akaWoj);
+        facultyRepository.save(sto);
+        facultyRepository.save(stj);
 
         Faculty bib = new Faculty("Main library", "bib", "https://www.bg.wat.edu.pl/", "wat");
         Faculty un = new Faculty("Other", "undefined", "https://wat.edu.pl", "wat");
@@ -75,6 +80,31 @@ public class ServerApplication {
         List<Institute> institutes = Arrays.asList(instituteA, instituteB, instituteC, instituteE, instituteG, instituteRadiowa, instituteLazurowa);
         ent.setInstitutes(institutes);
         facultyRepository.save(ent);
+
+        Faculty ele = new Faculty("Elevators", "elevators", "", "");
+        Institute ele1 = new Institute("Elevator 1", "", 65, 52.25517838788134, 20.904101729393002, ele);
+        Institute ele2 = new Institute("Elevator 2", "", 100, 52.253677663130354, 20.900663137435913, ele);
+        Institute ele3 = new Institute("Elevator 3", "", 100, 52.25273188490786, 20.90072214603424, ele);
+        List<Institute> elevators = Arrays.asList(ele1, ele2, ele3);
+        ele.setInstitutes(elevators);
+        facultyRepository.save(ele);
+
+        Faculty food = new Faculty("Food", "food", "", "");
+        Institute bufet = new Institute("Bufet", "", 100, 52.253657959623055, 20.900191068649292, food);
+        Institute hotdogi = new Institute("Hot dogi", "", 0, 52.25248558518625, 20.89802920818329, food);
+        Institute klops = new Institute("Klops", "", 0, 52.25492774842464, 20.893665057211063, food);
+        Institute kebab = new Institute("Kebab", "", 0, 52.25866401603555, 20.897256895536568, food);
+        Institute loska = new Institute("Łośka", "", 0, 52.25955214746283, 20.89802832679216, food);
+        List<Institute> foods = Arrays.asList(bufet, hotdogi, klops, kebab, loska);
+        food.setInstitutes(foods);
+        facultyRepository.save(food);
+
+        Faculty shops = new Faculty("Shops", "shops", "", "");
+        Institute lewiatan = new Institute("Lewiatan", "", 0, 52.24963744011332, 20.89395605472621, shops);
+        Institute archimedes = new Institute("Archimedes-Sklep Spożywczy", "", 0, 52.25564675241641, 20.894356996656228, shops);
+        List<Institute> shopList = Arrays.asList(lewiatan, archimedes);
+        shops.setInstitutes(shopList);
+        facultyRepository.save(shops);
     }
 
 }
