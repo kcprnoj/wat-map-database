@@ -24,7 +24,7 @@ public class ServerApplication {
     public static void createWatFaculties(FacultyRepository facultyRepository) {
         Faculty wcy = new Faculty("Faculty of Cybernetics", "WCY", "https://wcy.wat.edu.pl", "wat");
         Institute institute1 = new Institute("Instytut Inżynieri Systemów", "65", 65, 0.0, 0.0, wcy);
-        Institute institute2 = new Institute("Instytut Inżynieri Systemów", "100", 100, 0.0, 0.0, wcy);
+        Institute institute2 = new Institute("dziekant", "Floor: 2nd", 276, 52.253480627663585, 20.8996519446373, wcy);
         List<Institute> instituteList = Arrays.asList(institute1, institute2);
         wcy.setInstitutes(instituteList);
 
