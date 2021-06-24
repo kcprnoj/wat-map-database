@@ -90,7 +90,7 @@ public class ServerApplication {
         facultyRepository.save(ele);
 
         Faculty food = new Faculty("Food", "food", "", "");
-        Institute bufet = new Institute("Bufet", "", 100, 52.252718748957236, 20.900236666202545, food);
+        Institute bufet = new Institute("Bufet, 2nd floor", "", 100, 52.25271218098045, 20.9002286195755, food);
         Institute hotdogi = new Institute("Hot dogi", "", 0, 52.25361526866057, 20.899568796157837, food);
         Institute klops = new Institute("Klops", "", 0, 52.25492774842464, 20.893665057211063, food);
         Institute kebab = new Institute("Kebab", "", 0, 52.25866401603555, 20.897256895536568, food);
