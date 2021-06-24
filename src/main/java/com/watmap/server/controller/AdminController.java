@@ -1,6 +1,5 @@
 package com.watmap.server.controller;
 
-import com.watmap.server.entity.dto.FacultyDto;
 import com.watmap.server.entity.dto.UserDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
