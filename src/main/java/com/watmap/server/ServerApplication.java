@@ -83,15 +83,15 @@ public class ServerApplication {
 
         Faculty ele = new Faculty("Elevators", "elevators", "", "");
         Institute ele1 = new Institute("Elevator 1", "", 65, 52.25517838788134, 20.904101729393002, ele);
-        Institute ele2 = new Institute("Elevator 2", "", 100, 52.253677663130354, 20.900663137435913, ele);
+        Institute ele2 = new Institute("Elevator 2", "", 100, 52.25361526866057, 20.899568796157837, ele);
         Institute ele3 = new Institute("Elevator 3", "", 100, 52.25273188490786, 20.90072214603424, ele);
         List<Institute> elevators = Arrays.asList(ele1, ele2, ele3);
         ele.setInstitutes(elevators);
         facultyRepository.save(ele);
 
         Faculty food = new Faculty("Food", "food", "", "");
-        Institute bufet = new Institute("Bufet, 2nd floor", "", 100, 52.25271218098045, 20.9002286195755, food);
-        Institute hotdogi = new Institute("Hot dogi", "", 0, 52.25361526866057, 20.899568796157837, food);
+        Institute bufet = new Institute("Bufet, 2nd floor", "", 100, 52.252718748957236, 20.900236666202545, food);
+        Institute hotdogi = new Institute("Hot dogi", "", 0, 52.25248558518625, 20.89802920818329, food);
         Institute klops = new Institute("Klops", "", 0, 52.25492774842464, 20.893665057211063, food);
         Institute kebab = new Institute("Kebab", "", 0, 52.25866401603555, 20.897256895536568, food);
         Institute loska = new Institute("Łośka", "", 0, 52.25955214746283, 20.89802832679216, food);
